@@ -4,6 +4,11 @@ The Warrior Character Generator generates a random Hero’s Journey character us
 ---------------------
 
 
+Update 1.01: 2021-03-07
+
+Update files hjWarrior.php, warrior.css, arachetype.php, gear.php, weapons.php and xp.php.
+
+
 Initial commit: 2021-03-05
 
 The initial commit of The Hero's Journey 2e Warrior Character Generator.

@@ -84,9 +84,6 @@
 
         $lineageDefenseBonus = lineageDefenseBonus($lineageNumber);
 
-        $forestry = forestry($level);
-
-
         $abilityScoreArray = array();
         $abilityScoreArray = getAbilityScores($lineageNumber);
 
@@ -94,7 +91,6 @@
         $might = minimumClassScore($might);
         $finesse = $abilityScoreArray[1];
         $resolve = $abilityScoreArray[2];
-        $resolve = minimumClassScore($resolve);
         $insight = $abilityScoreArray[3];
         $bearing = $abilityScoreArray[4];
         $weal = $abilityScoreArray[5];
@@ -106,10 +102,10 @@
         $bearingMod = getAbilityScoreModString($bearing);
         $wealMod = getAbilityScoreModString($weal);
 
-        $xpBonus = getXPBonus($resolve);
+        $xpBonus = getXPBonus($might);
+        $warriorMessage = warriorMessage();
+        $companyRally = rallyCompany($level);
         $saveMessage = saveMessage();
-        $naturalWanderer = naturalWanderer($insight, $level);
-        $twoWeaponFighting = twoWeaponFighting($finesse);
 
 
         $xpNextLevel = getXPNextLevel ($level);
@@ -508,10 +504,9 @@
        
         <span id="archetype">
            <?php
-                echo $forestry;
                 echo $saveMessage;
-                echo $naturalWanderer;
-                echo $twoWeaponFighting;
+                echo $warriorMessage;
+                echo $companyRally;
                 echo $xpBonus;
            ?>
         </span>

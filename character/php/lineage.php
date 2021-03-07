@@ -56,21 +56,21 @@ function lineageReduction($lineage)
 
 /*
 1 = changeling 7
-2 = dwarf 4
+2 = dwarf 10
 3 = elf  7
 4 = 1/2 elf 7
-5 = halfling 7
+5 = halfling 5
  */ 
 
 function levelLimit($lineage, $level)
 {
 
-    if($lineage == "2" && $level > 4)
+    if($lineage == "5" && $level > 5)
     {
-        $level = 4;
+        $level = 5;
     }
 
-    if($lineage == "1" || $lineage == "3" || $lineage == "4" || $lineage == "5")
+    if($lineage == "1" || $lineage == "3" || $lineage == "4")
     {
         if($level > 7)
         {
@@ -84,11 +84,11 @@ function levelLimit($lineage, $level)
 
 function levelLimitMessage($lineage)
 {
-    if($lineage == "2")
+    if($lineage == "5")
     {
-        $message = "<span class='lineageBold'>Lineage Level Limit: 4</span>";
+        $message = "<span class='lineageBold'>Lineage Level Limit: 5</span>";
     }
-    else if($lineage == "1" || $lineage == "3" || $lineage == "4" || $lineage == "5")
+    else if($lineage == "1" || $lineage == "3" || $lineage == "4")
     {
         $message = "<span class='lineageBold'>Lineage Level Limit: 7</span>";
     }

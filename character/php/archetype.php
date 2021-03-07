@@ -24,31 +24,31 @@ function getEndurance($level, $resolveMod)
         break;
         
         case "4":
-            $endurance = $enduranceLevel3 + 2;
+            $endurance = $enduranceLevel3 + 3;
         break;
         
         case "5":
-            $endurance = $enduranceLevel3 + 4;
+            $endurance = $enduranceLevel3 + 6;
         break;
         
         case "6":
-            $endurance = $enduranceLevel3 + 6;
+            $endurance = $enduranceLevel3 + 9;
         break;        
 
         case "7":
-            $endurance = $enduranceLevel3 + 8;
-        break;
-                
-        case "8":
-            $endurance = $enduranceLevel3 + 10;
-        break;
-                
-        case "9":
             $endurance = $enduranceLevel3 + 12;
         break;
                 
+        case "8":
+            $endurance = $enduranceLevel3 + 15;
+        break;
+                
+        case "9":
+            $endurance = $enduranceLevel3 + 18;
+        break;
+                
         case "10":
-            $endurance = $enduranceLevel3 + 14;
+            $endurance = $enduranceLevel3 + 21;
         break;
 
         default:
@@ -64,31 +64,31 @@ function getEndurance($level, $resolveMod)
 
 function getAttackBonus($level)
 {
-    $bonus = 0;
+    $bonus = 1;
 
-    if($level == 2)
-    {
-        $bonus = 1;
-    }    
-    else if($level >= 3 && $level <= 4)
+    if($level == 3)
     {
         $bonus = 2;
-    }
-    else if($level == 5)
+    }    
+    else if($level >= 4 && $level <= 5)
     {
         $bonus = 3;
     }
-    else if($level >= 6 && $level <= 7)
+    else if($level == 6)
     {
         $bonus = 4;
     }
-    else if($level == 8)
+    else if($level >= 7 && $level <= 8)
     {
         $bonus = 5;
     }
-    else if($level >= 9)
+    else if($level == 9)
     {
         $bonus = 6;
+    }
+    else if($level == 10)
+    {
+        $bonus = 7;
     }
     else
     {
@@ -113,7 +113,7 @@ function minimumClassScore($score)
 function getSavingThrow($level)
 {
     $levelInt = (int)$level;
-    $save = (17 - $levelInt);
+    $save = (16 - $levelInt);
 
     return $save;
 
@@ -125,83 +125,38 @@ function getXPBonus($abilityScore)
 
     if($abilityScore > 14)
     {
-        $bonus = "+5% bonus to Experience Points";
+        $bonus = "<span class='archetypeBold'>+5% bonus to Experience Points</span>";
     }
 
     return $bonus;
 }
+function warriorMessage()
+{
+    $message = "<span class='archetypeBold'>A Greater Valour Against Lesser Foes</span><br/><br/><span class='archetypeBold'>Shattered Shields:</span> Can avoid damage on a successful hit by permanently reducing the shield's defense bonus by 1.<br/><br/><span class='archetypeBold'>Terrible Blows:</span> Damage increases by 1 die when either a two-handed weapon or an one-handed weapon is wielded by two hands.<br/><br/><span class='archetypeBold'>Weapon Specialization</span><br/><br/>";
+
+    return $message;
+}
+
+function rallyCompany($level)
+{
+    $message = "";
+
+    if($level >= 4)
+    {
+        $message = "<span class='archetypeBold'>Rally the Company</span><br/><br/>";
+    }
+
+    return $message;
+
+}
 
 function saveMessage()
 {
-    $message = "<span class='archetypeBold'>Saving Throw:</span> Advantage on saving throws made versus poisons and natural hazards.<br/><br/>";
+    $message = "<span class='archetypeBold'>Saving Throw:</span> Advantage on saving throws made to avoid a Grevious Blow and to resist poisons.<br/><br/>";
 
     return $message;
 }
 
-
-function naturalWanderer($score, $level)
-{
-    $message = "";
-
-    if($score >= 15)
-    {
-        if($level >= 3 && $level <= 5)
-        {
-            $message = "<span class='archetypeBold'>Natural Wanderer:</span> Able to cast the <span class='archetypeItalic'>Errant Pilgrim</span> spell once per day.<br/><br/>";
-        }
-        else if($level >= 6 && $level <= 8)
-        {
-            $message = "<span class='archetypeBold'>Natural Wanderer:</span> Able to cast the <span class='archetypeItalic'>Errant Pilgrim</span> spell twice per day.<br/><br/>";
-        }
-        else if($level >= 9)
-        {
-            $message = "<span class='archetypeBold'>Natural Wanderer:</span> Able to cast the <span class='archetypeItalic'>Errant Pilgrim</span> spell three times per day.<br/><br/>";
-        }
-        else
-        {
-            $message = "";
-        }
-    }
-
-    return $message;
-}
-
-function twoWeaponFighting($score)
-{
-    $message = "";
-
-    if($score >= 15)
-    {
-        $message = "<span class='archetypeBold'>Two-Weapon Fighting:</span> Able to fight with a one-handed melee weapon in each hand.";
-    }
-
-    return $message;
-}
-
-
-
-
-function forestry($level)
-{
-    if($level >= "1" && $level <= "3")
-    {
-        $lore = "<span class='archetypeBold'>Forestry: 2</span><br/><br/><span class='archetypeBold'>Giant-Slayer:</span> Advantage of attack rolls against giant-kin and goblins.<br/><br/><span class='archetypeBold'>Ranger's Wealth:</span> Treasure and magical items are limited to what a Ranger could carry on their person.<br/><br/>";
-    }
-    else if($level >= "4" && $level <= "6")
-    {
-        $lore = "<span class='archetypeBold'>Forestry: 3</span><br/><br/><span class='archetypeBold'>Giant-Slayer:</span> Advantage of attack rolls against giant-kin and goblins.<br/><br/><span class='archetypeBold'>Ranger's Wealth:</span> Treasure and magical items are limited to what a Ranger could carry on their person.<br/><br/>";
-    }
-    else if($level >= "7" && $level <= "9")
-    {
-        $lore = "<span class='archetypeBold'>Forestry: 4</span><br/><br/><span class='archetypeBold'>Giant-Slayer:</span> Advantage of attack rolls against giant-kin and goblins.<br/><br/><span class='archetypeBold'>Ranger's Wealth:</span> Treasure and magical items are limited to what a Ranger could carry on their person.<br/><br/>";
-    }
-    else
-    {
-        $lore = "<span class='archetypeBold'>Forestry: 5</span><br/><br/><span class='archetypeBold'>Giant-Slayer:</span> Advantage of attack rolls against giant-kin and goblins.<br/><br/><span class='archetypeBold'>Ranger's Wealth:</span> Treasure and magical items are limited to what a Ranger could carry on their person.<br/><br/>";
-    }
-
-    return $lore;
-}
 
 
 ?>

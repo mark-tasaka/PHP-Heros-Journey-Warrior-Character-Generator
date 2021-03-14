@@ -3,6 +3,18 @@ The Warrior Character Generator generates a random Hero’s Journey character us
 
 ---------------------
 
+A live version of the Warrior Character Generator is available at:
+
+https://www.oldschooladventures.org/hero/more/classes/warrior/
+
+
+-------------------------
+
+Update 1.02: 2021-03-14
+
+A launch page for Warrior Character Generator has been added.
+
+
 
 Update 1.01: 2021-03-07
 
